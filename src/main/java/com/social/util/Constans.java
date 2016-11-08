@@ -21,7 +21,7 @@ public class Constans {
 	}
 	
 	public enum OpenIdType {
-		WEIBO,QQ,WECHAT,GZWECHAT
+		WEIBO,QQ,WECHAT
 	}
 	
 	

@@ -7,10 +7,11 @@
 		<result column="user_name" property="userName" jdbcType="VARCHAR" />
 		<result column="password" property="password" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="openId" property="openId" jdbcType="VARCHAR" />
 	</resultMap>
 	
 	<sql id="Base_Column_List">
-		id, user_name, password, age
+		id, user_name, password, age, openId
 	</sql>
 	
 	<sql id="Base_Where_Clause">
@@ -27,6 +28,14 @@
 		<if test="offset != null and limit != null">limit #{offset}, #{limit}</if>
 	</sql>
 	
+	<sql id="Social_Login_Where_Clause">
+		<where>
+			<trim prefixOverrides="and">
+				<if test="openId != null"> and openId = #{openId}</if>
+			</trim>
+		</where>
+	</sql>
+	
 	<select id="selectCount" resultType="java.lang.Long" parameterType="java.util.Map">
 		select count(id) from user_t
 		<include refid="Base_Where_Clause"/>
@@ -38,6 +47,13 @@
 		<include refid="Base_Column_List" />
 		from user_t
 		where id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="getUserByOpenId" resultMap="BaseResultMap" parameterType="">
+		select
+		<include refid="Base_Column_List" />
+		from user_t
+		<include refid="Social_Login_Where_Clause" />
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from user_t
@@ -65,6 +81,12 @@
 			<if test="age != null">
 				age,
 			</if>
+			<if test="openId != null">
+				openId
+			</if>
+			<if test="openIdType != null">
+				openIdType
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -78,6 +100,12 @@
 			</if>
 			<if test="age != null">
 				#{age,jdbcType=INTEGER},
+			</if>
+			<if test="openId != null">
+				#{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="openIdType != null">
+				#{openIdType,jdbcType=INTEGER},
 			</if>
 		</trim>
 	</insert>

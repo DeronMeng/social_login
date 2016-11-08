@@ -42,7 +42,7 @@ public class WeChatDevUtils {
 	}
 	
 	/**
-	 * 获取登录用户自己的基本资料 
+	 * Gets the basic information for the login user
 	 */
 	public static WxUserinfo getUserInfoBySns(String accessToken, String openId) throws Exception {
 		String getUserInfoUrl = MessageFormat.format(GET_USER_INFO, accessToken, openId);
@@ -52,7 +52,7 @@ public class WeChatDevUtils {
 	}
 	
 	/**
-	 * 检查授权凭证是否有效 accessToken
+	 * Check whether the authorization certificate is valid accessToken
 	 */
 	public static JSONObject checkTokenIsValid(String accessToken, String openId) throws Exception {
 		String checkTokenUrl = MessageFormat.format(CHECK_OAUTH_TOKEN_IS_VALID, accessToken, openId);
@@ -61,7 +61,7 @@ public class WeChatDevUtils {
 	}
 	
 	/**
-	 * 刷新access_token(如果需要) refreshToken
+	 * refresh access_token(if need) refreshToken
 	 */
 	public static JSONObject refreshToken(String refreshToken) throws Exception {
 		String refreshTokenUrl = MessageFormat.format(REFRESH_TOKEN_URL, SOCIAL_LOGIN_CLIENT_ID, refreshToken);

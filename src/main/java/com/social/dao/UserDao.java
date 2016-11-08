@@ -1,6 +1,8 @@
 package com.social.dao;
 
 import com.social.domain.User;
+import com.social.domain.vo.UserVO;
+import com.social.util.Constans.OpenIdType;
 
 public interface UserDao {
 	int deleteByPrimaryKey(Integer id);
@@ -14,4 +16,6 @@ public interface UserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    public UserVO getUserByOpenId(String openId, OpenIdType openIdType);
 }

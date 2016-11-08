@@ -1,5 +1,7 @@
 package com.social.domain;
 
+import com.social.util.Constans.OpenIdType;
+
 public class User {
 	private Integer id;
 
@@ -8,6 +10,10 @@ public class User {
     private String password;
 
     private Integer age;
+    
+    private String openId;
+    
+    private OpenIdType openIdType;
 
     public Integer getId() {
         return id;
@@ -40,4 +46,20 @@ public class User {
     public void setAge(Integer age) {
         this.age = age;
     }
+
+	public String getOpenId() {
+		return openId;
+	}
+
+	public void setOpenId(String openId) {
+		this.openId = openId;
+	}
+
+	public OpenIdType getOpenIdType() {
+		return openIdType;
+	}
+
+	public void setOpenIdType(OpenIdType openIdType) {
+		this.openIdType = openIdType;
+	}
 }
