@@ -100,9 +100,9 @@ public class SocialCallBackController extends BaseController{
 			um.client.setToken(accessToken.getAccessToken());
 			User user = um.showUserById(uid);
 			
-			String screenName = user.getScreenName(); // nick name
-			String avatar = user.getAvatarLarge(); // user head img
-			String gender = null; // sex
+			String screenName = user.getScreenName();
+			String avatar = user.getAvatarLarge();
+			String gender = null;
 	        
 	        getRequest().getSession().setAttribute("screenName", screenName);
 	        getRequest().getSession().setAttribute("avatar", avatar);
