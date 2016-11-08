@@ -18,6 +18,24 @@
 					    http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
                         http://www.springframework.org/schema/mvc  
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    
+    <bean id="appConfig" class="com.social.util.AppConfig" lazy-init="true">
+    	 <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+    	<property name="ignoreResourceNotFound" value="true" />
+	    <property name="locations">
+	      <list>
+	        <!-- 默认配置文件 -->
+	        <value>classpath:jdbc.properties</value>
+	        <value>classpath:configuration.properties</value>
+	        <value>classpath:qqconnectconfig.properties</value>
+	
+	        <!-- 环境相关的配置文件-->
+	        <value>classpath:jdbc_${system_env}.properties</value>
+	        <value>classpath:configuration_${system_env}.properties</value>
+	      </list>
+	    </property>
+    </bean>
+    
 	<!-- 自动扫描 -->
 	<context:component-scan base-package="com.social" />
 	<!-- 引入配置文件 -->
