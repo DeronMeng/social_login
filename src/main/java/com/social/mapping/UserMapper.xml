@@ -49,7 +49,7 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	
-	<select id="getUserByOpenId" resultMap="BaseResultMap" parameterType="">
+	<select id="getUserByOpenId" resultMap="BaseResultMap" parameterType="java.util.Map">
 		select
 		<include refid="Base_Column_List" />
 		from user_t

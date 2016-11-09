@@ -26,10 +26,10 @@ public class BaseController {
 	 */
 	@ModelAttribute
 	public void init(HttpServletRequest request, HttpServletResponse response) {
-		getRequest().getSession().setAttribute("login_current_url", getRequest().getHeader("Referer"));
-		log.info("================login_current_url " + getRequest().getHeader("Referer"));
 		currentRequest.set(request);
 		currentResponse.set(response);
+		getRequest().getSession().setAttribute("login_current_url", getRequest().getHeader("Referer"));
+		log.info("================login_current_url " + getRequest().getHeader("Referer"));
 	}
 	
 	/**
