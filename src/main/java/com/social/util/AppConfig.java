@@ -48,6 +48,7 @@ public class AppConfig extends PropertyPlaceholderConfigurer {
 			}
 			propertiesMap.put(keyStr, valueStr);
 		}
+		log.info("=========================AppConfig -> PropertiesMap" + propertiesMap);
 	}
 	
 	public static String getProperty(String name) {

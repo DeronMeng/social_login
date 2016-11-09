@@ -55,6 +55,7 @@
 		from user_t
 		<include refid="Social_Login_Where_Clause" />
 	</select>
+	
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 		delete from user_t
 		where id = #{id,jdbcType=INTEGER}

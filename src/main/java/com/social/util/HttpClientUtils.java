@@ -17,8 +17,12 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
-public class HttpClientUtil {
-	private static final Logger log = Logger.getLogger(HttpClientUtil.class);
+/**
+ * 
+ * Create By Deron Meng 2016-11-08.
+ */
+public class HttpClientUtils {
+	private static final Logger log = Logger.getLogger(HttpClientUtils.class);
 
 	/**
 	 * send HTTP_GET request

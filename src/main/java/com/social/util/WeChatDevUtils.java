@@ -37,7 +37,7 @@ public class WeChatDevUtils {
 	 */
 	public static JSONObject oauth(String appId, String appSecret, String code) throws Exception {
 		String oauthUrl = MessageFormat.format(GET_OAUTH_URL, SOCIAL_LOGIN_CLIENT_ID, SOCIAL_LOGIN_CLIENT_SERCRET, code);
-		String response = HttpClientUtil.sendRequest(oauthUrl);
+		String response = HttpClientUtils.sendRequest(oauthUrl);
 		return JSONObject.fromObject(response);
 	}
 	
@@ -46,7 +46,7 @@ public class WeChatDevUtils {
 	 */
 	public static WxUserinfo getUserInfoBySns(String accessToken, String openId) throws Exception {
 		String getUserInfoUrl = MessageFormat.format(GET_USER_INFO, accessToken, openId);
-		String response = HttpClientUtil.sendRequest(getUserInfoUrl);
+		String response = HttpClientUtils.sendRequest(getUserInfoUrl);
 		WxUserinfo wxUserinfo = (WxUserinfo) JSONObject.toBean(JSONObject.fromObject(response), WxUserinfo.class);
 		return wxUserinfo;
 	}
@@ -56,7 +56,7 @@ public class WeChatDevUtils {
 	 */
 	public static JSONObject checkTokenIsValid(String accessToken, String openId) throws Exception {
 		String checkTokenUrl = MessageFormat.format(CHECK_OAUTH_TOKEN_IS_VALID, accessToken, openId);
-		String response = HttpClientUtil.sendRequest(checkTokenUrl);
+		String response = HttpClientUtils.sendRequest(checkTokenUrl);
 		return JSONObject.fromObject(response);
 	}
 	
@@ -65,7 +65,7 @@ public class WeChatDevUtils {
 	 */
 	public static JSONObject refreshToken(String refreshToken) throws Exception {
 		String refreshTokenUrl = MessageFormat.format(REFRESH_TOKEN_URL, SOCIAL_LOGIN_CLIENT_ID, refreshToken);
-		String response = HttpClientUtil.sendRequest(refreshTokenUrl);
+		String response = HttpClientUtils.sendRequest(refreshTokenUrl);
 		return JSONObject.fromObject(response);
 	}
 }

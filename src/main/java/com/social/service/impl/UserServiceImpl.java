@@ -30,5 +30,4 @@ public class UserServiceImpl implements UserService {
 	public int insertSelective(User record) {
 		return userDao.insertSelective(record);
 	}
-
 }

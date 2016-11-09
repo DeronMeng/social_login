@@ -21,7 +21,7 @@ import com.qq.connect.api.OpenID;
 import com.social.domain.vo.UserVO;
 import com.social.service.UserService;
 import com.social.util.AppConfig;
-import com.social.util.HttpClientUtil;
+import com.social.util.HttpClientUtils;
 import com.social.util.Constans.OpenIdType;
 import com.social.util.WeChatDevUtils;
 import com.social.util.WxUserinfo;
@@ -114,7 +114,7 @@ public class SocialCallBackController extends BaseController{
 	
 	private void getQQUserInfoByAccessToken(String accessToken, String openID) throws Exception{
         String url = AppConfig.getProperty("getUserInfoURL") + "?access_token="+accessToken+"&oauth_consumer_key="+AppConfig.getProperty("app_ID")+"&openid="+openID;
-        String userinfo = HttpClientUtil.sendGetRequest(url, "utf-8");
+        String userinfo = HttpClientUtils.sendGetRequest(url, "utf-8");
         JSONObject jsonUserInfo = JSONObject.fromObject(userinfo);
         chkLogin(openID, OpenIdType.QQ, jsonUserInfo.getString("nickname"));
 	}

@@ -18,4 +18,5 @@ public interface UserDao {
     int updateByPrimaryKey(User record);
     
     public UserVO getUserByOpenId(String openId, OpenIdType openIdType);
+    
 }

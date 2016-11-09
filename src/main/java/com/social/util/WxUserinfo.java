@@ -132,6 +132,7 @@ public class WxUserinfo {
 	public void setPrivilege(Object privilege) {
 		this.privilege = privilege;
 	}
+	
 	@Override
 	public String toString() {
 		return "WxUserinfo [subscribe=" + subscribe + ", openid=" + openid

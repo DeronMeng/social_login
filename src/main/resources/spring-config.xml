@@ -24,7 +24,7 @@
     	<property name="ignoreResourceNotFound" value="true" />
 	    <property name="locations">
 	      <list>
-	        <!-- 默认配置文件 -->
+	        <!-- default config -->
 	        <value>classpath:jdbc.properties</value>
 	        <value>classpath:configuration.properties</value>
 	        <value>classpath:qqconnectconfig.properties</value>
